@@ -1,0 +1,12 @@
+﻿@page
+@model dotnet_3.Pages.LastSearchModel
+@{
+    <div class="text-center">
+        <h1>Ostatnie Wyszukiwania</h1>
+
+        @foreach (var person in @Model.PersonList)
+        {
+            <p>@person.ToStringLastSearched()</p>
+        }
+    </div>
+}

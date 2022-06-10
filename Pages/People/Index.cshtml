@@ -1,0 +1,58 @@
+﻿@page
+@using dotnet_3.Models
+@model dotnet_3.Pages.People.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Result)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <tbody>
+            @foreach (var person in Model.Person)
+            {
+            <tr>
+                <td>
+                        @Html.DisplayFor(modelItem => person.Name)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => person.LastName)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => person.Year)
+                </td>
+                <th>
+                        @Html.DisplayNameFor(model => person.Date)
+                </th>
+                <td>
+                        @Html.DisplayFor(modelItem => person.Result)
+                </td>
+
+                <td>
+                    <a asp-page="./Delete" asp-route-id="@person.Id" class="btn-info">Delete</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
